@@ -1,0 +1,40 @@
+﻿<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="cabecera" id="inicio">
+  <div class="contenedor cabecera-interior">
+    <a class="marca" href="#inicio" aria-label="VivasSolar, inicio">Vivas<span>Solar</span></a>
+    <nav aria-label="Menú principal">
+      <a href="#galeria">Galería</a>
+      <a href="#acerca">Acerca del proyecto</a>
+    </nav>
+    <button class="tema" type="button" (click)="cambiarTema()"
+      [attr.aria-pressed]="modoOscuro" [attr.aria-label]="modoOscuro ? 'Activar modo claro' : 'Activar modo oscuro'">
+      <span aria-hidden="true">{{ modoOscuro ? '☀' : '◐' }}</span> {{ modoOscuro ? 'Modo claro' : 'Modo oscuro' }}
+    </button>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="presentacion" aria-labelledby="titulo">
+    <div class="contenedor portada">
+      <div>
+        <h1 id="titulo">Galería de trabajos VivasSolar<span class="subtitulo">Una planta solar,<br>mucho más que paneles.</span></h1>
+        <p class="descripcion">Descubre nuestros proyectos fotovoltaicos a través de imágenes de instalaciones, trabajos de ingeniería y soluciones tecnológicas aplicadas al sector de la energía solar.</p>
+        <a class="boton" href="#galeria">Explorar la galería <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+  <div class="contenedor resumen">
+    <p><strong>Instalaciones, equipos y supervisión</strong> para conocer la energía solar desde dentro.</p>
+    <span>SCADA / EQUIPOS / FOTOVOLTAICA</span>
+  </div>
+  <div class="contenedor contenido-galeria" id="galeria">
+    <app-galeria></app-galeria>
+  </div>
+</main>
+
+<footer class="pie" id="acerca">
+  <div class="contenedor pie-interior">
+    <a class="marca" href="#inicio">Vivas<span>Solar</span></a>
+    <div><p>VivasSolar · Galería de proyectos</p><p class="nota">Actividad academica. Las fotografias no son de instalaciones reales.</p></div>
+  </div>
+</footer>

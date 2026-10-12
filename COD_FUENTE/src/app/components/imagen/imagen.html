@@ -1,0 +1,12 @@
+<article class="tarjeta">
+  <button type="button" class="boton-imagen" (click)="seleccionarImagen()"
+          [attr.aria-label]="'Ampliar ' + imagen.titulo">
+    <img [src]="imagen.ruta" [alt]="imagen.titulo" loading="lazy">
+  </button>
+
+  <div class="informacion">
+    <span class="categoria">{{ imagen.categoria }}</span>
+    <h3>{{ imagen.titulo }}</h3>
+    <p>{{ imagen.descripcion }}</p>
+  </div>
+</article>

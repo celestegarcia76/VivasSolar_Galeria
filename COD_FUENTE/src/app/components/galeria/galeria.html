@@ -1,0 +1,54 @@
+<section class="galeria">
+  <div class="galeria-encabezado">
+    <div>
+      <p class="etiqueta">Proyectos e instalaciones</p>
+      <h2>Nuestra galería<span aria-hidden="true">.</span></h2>
+      <p>Selecciona una categoría o pulsa sobre una imagen para ampliarla.</p>
+    </div>
+    <span class="contador" aria-live="polite">{{ imagenesFiltradas.length }} imágenes</span>
+  </div>
+
+  <div class="filtros" role="group" aria-label="Filtrar imágenes por categoría">
+    <button
+      type="button"
+      *ngFor="let categoria of categorias"
+      [class.activo]="filtro === categoria"
+      [attr.aria-pressed]="filtro === categoria"
+      (click)="cambiarFiltro(categoria)">
+      {{ categoria }}
+    </button>
+  </div>
+
+  <div class="rejilla">
+    <app-imagen
+      *ngFor="let imagen of imagenesFiltradas"
+      [imagen]="imagen"
+      (seleccionar)="abrir($event)">
+    </app-imagen>
+  </div>
+</section>
+
+<!-- Vista ampliada: solo aparece cuando hay una imagen seleccionada. -->
+<div class="fondo-modal" *ngIf="imagenSeleccionada" (click)="cerrar()">
+  <div class="modal" role="dialog" aria-modal="true" [attr.aria-label]="imagenSeleccionada.titulo"
+       (click)="$event.stopPropagation()">
+    <button class="cerrar" type="button" (click)="cerrar()" aria-label="Cerrar imagen">×</button>
+
+    <img class="imagen-grande" [src]="imagenSeleccionada.ruta" [alt]="imagenSeleccionada.titulo">
+
+    <div class="modal-informacion">
+      <span class="categoria">{{ imagenSeleccionada.categoria }}</span>
+      <h3>{{ imagenSeleccionada.titulo }}</h3>
+      <p>{{ imagenSeleccionada.descripcion }}</p>
+      <p class="fuente">Fuente: {{ imagenSeleccionada.fuente }}
+        <a *ngIf="imagenSeleccionada.enlaceFuente" [href]="imagenSeleccionada.enlaceFuente"
+           target="_blank" rel="noopener noreferrer">Ver original</a>
+      </p>
+
+      <div class="navegacion">
+        <button type="button" (click)="anterior()">← Anterior</button>
+        <button type="button" (click)="siguiente()">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+</div>

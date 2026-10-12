@@ -1,0 +1,10 @@
+﻿:host { display: block; min-width: 0; }
+.tarjeta { height: 100%; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); box-shadow: var(--shadow); }
+.tarjeta:hover { border-color: #bb850e; }
+.boton-imagen { display: block; width: 100%; padding: 0; border: 0; background: var(--blue); cursor: pointer; }
+.boton-imagen:focus-visible { outline-offset: -4px; }
+.boton-imagen img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.informacion { padding: 25px 24px 24px; }
+.categoria { display: inline-block; color: var(--pill-ink); background: var(--pill); border-radius: 40px; padding: 4px 10px; font-size: 11px; font-weight: 800; }
+h3 { margin: 16px 0 12px; color: var(--ink); font-size: 23px; line-height: 1.23; letter-spacing: -.6px; }
+p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
